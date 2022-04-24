@@ -57,9 +57,11 @@ class FamilyStructure:
     def delete_member(self, id):
         # fill this method and update the return
         for position in range(len(self._members)):
-            if self._members[position]["id"] == id:
+            if self._members[position]["id"] == int(id):
                 self._members.pop(position)
-                return {"done": True}
+                return {"done": True}    
+        return None
+
 
     def get_member(self, id):
         # fill this method and update the return

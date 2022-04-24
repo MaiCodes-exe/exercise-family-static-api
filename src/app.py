@@ -56,11 +56,12 @@ def add_member():
 
 
 ### 4) DELETE one member
-
-@app.route('/member/<int:id>', methods=['DELETE'])
-def delete_member(id):
-    members= jackson_family.delete_member(id)
-    return jsonify({"msj":"Member deleted"}), 200
+@app.route('/member/<int:member_id>', methods=['DELETE'])
+def delete_member(member_id):
+    member = jackson_family.delete_member(member_id)
+    if not member:
+        return jsonify({"Msj":"Member has been deleted"}), 200
+    return jsonify(member)
 
 
 # this only runs if `$ python src/app.py` is executed
